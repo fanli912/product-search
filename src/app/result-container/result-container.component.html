@@ -1,0 +1,26 @@
+
+<div class="container">
+  <div id="result-and-wishlist">
+    <div class="btn-group" role="group">
+      <!-- <button type="button" [class]="resultShowClass" (click)="showResult()">Results</button>
+      <button type="button" [class]="wishlistShowClass" (click)="showWishList()">Wish List</button> -->
+    </div>
+  </div>
+  <!-- *ngIf="!clear" -->
+<!-- [@slideAnimation]="active" [hidden]="active == 'right'" -->
+  <div id="slide-container"  class="container">
+    <div class="slide-div" >
+      <div>
+        <!-- (slide)="slideRight($event)"(slide)="slideLeft($event)"  -->
+        <app-detail ></app-detail>
+      </div>
+    </div>
+    <!-- [hidden]="active == 'left'" -->
+    <div class="slide-div" >
+      <div>
+        <app-result-table ></app-result-table>
+        <!-- <app-favorite (slide)="slideLeft($event)" [class.hide]="!isShowFavorite" ></app-favorite> -->
+      </div>
+    </div>
+  </div>
+</div>

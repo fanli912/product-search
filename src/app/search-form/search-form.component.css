@@ -1,0 +1,12 @@
+.row {
+  margin-bottom:15px;}
+
+.required {
+    color: red;
+}
+
+#form-header {
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+}

@@ -1,0 +1,27 @@
+<div id="info-div" *ngIf="product" class="table-responsive">
+  <table class="table table-striped">
+    <tbody>
+      <tr *ngIf="product.images">
+        <th scope="row">Product Images</th>
+        <td>{{product.images}}</td>
+      </tr>
+      <tr *ngIf="product.subtitle">
+        <th scope="row">Subtitle</th>
+        <td>{{product.subtitle}}</td>
+      </tr>
+      <tr *ngIf="product.price">
+        <th scope="row">Price</th>
+        <td>{{product.price}}</td>
+      </tr>
+      <tr *ngIf="product.location">
+        <th scope="row">Location</th>
+        <td>{{product.location}}</td>
+      </tr>
+
+      <tr *ngIf="product.policy">
+        <th scope="row">Return Policy</th>
+        <td>{{product.policy}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

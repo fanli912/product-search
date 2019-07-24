@@ -1,0 +1,63 @@
+<!-- <div class="details-btn" *ngIf="showResult && !error">
+  <button class="btn btn-outline-secondary" [disabled]="!selectedRow" (click)="showDetails()">Details
+    <i class="fas fa-angle-right"></i>
+  </button>
+</div> -->
+
+<div id="results-div"*ngIf="showResult" class="table-responsive">
+    <div class="progress mt-5" *ngIf="progress">
+        <div class="progress-bar progress-bar-striped progress-bar-animated" style="width:50%"></div>
+    </div>
+    <div class="alert alert-warning" role="alert" *ngIf="!resultJson">
+      No record.
+    </div>
+<table class="table" *ngIf="resultJson">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Image</th>
+      <th scope="col">Title</th>
+      <th scope="col">Price</th>
+      <th scope="col">Shipping</th>
+      <th scope="col">Zip</th>
+      <th scope="col">Seller</th>
+      <th scope="col">Wish List</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr *ngFor="let rowdata of pagedItems; index as i">
+          <th scope="row">{{i+1}}</th>
+          <td>
+            <img src={{rowdata.galleryURL}} alt="icon" class="product-pic">
+          </td>
+          <td><a (click)="getDetails(rowdata['itemId'][0])">{{simplifyTitle(rowdata["title"][0])}}</a></td>
+          <td>{{rowdata["sellingStatus"][0]["currentPrice"][0]["__value__"][0]}}</td>
+          <td>{{rowdata["shippingInfo"][0]["shippingType"][0]}}</td>
+          <td>{{rowdata["postalCode"]}}</td>
+          <td>{{rowdata["sellerInfo"][0]["sellerUserName"][0]}}</td>
+          <td>
+          </td>
+        </tr>
+
+  </tbody>
+</table>
+</div>
+
+<!-- pager -->
+<nav aria-label="Page navigation">
+<ul *ngIf="pager.pages && pager.pages.length" class="pagination">
+
+  <li class="page-item" [ngClass]="{disabled:pager.currentPage === 1}">
+      <a class="page-link" (click)="setPage(pager.currentPage - 1)">Previous</a>
+  </li>
+  <li  class="page-item" *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}">
+      <a class="page-link" (click)="setPage(page)">{{page}}</a>
+  </li>
+  <li  class="page-item" [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+      <a class="page-link" (click)="setPage(pager.currentPage + 1)">Next</a>
+  </li>
+
+</ul>
+</nav>
+
+<!-- pagination form: https://jasonwatmore.com/post/2016/08/23/angular-2-pagination-example-with-logic-like-google -->

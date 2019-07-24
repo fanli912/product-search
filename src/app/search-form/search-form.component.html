@@ -1,0 +1,81 @@
+<div class="container-fluid text-white bg-dark">
+    <div class =" col-sm-10 offset-sm-1">
+    <div id="form-header">Product Search</div>
+
+      <form (ngSubmit)="onSubmit()" #searchForm=ngForm>
+        <div class="form-group row">
+          <label for="keyword" class="col-sm-2 col-form-label">Keyword<span class="required">*</span> </label>
+          <div class ="col-sm-10">
+          <input type="text" class="form-control" required [ngClass]="{'form-control': true, 'is-invalid': keyword.invalid && (keyword.dirty || keyword.touched)}"
+          [(ngModel)]="form.keyword" name="keyword" #keyword="ngModel" placeholder="Enter Product Name(e.g. iPhone 8)">
+          <div class="invalid-feedback" >
+              Please enter a keyword.
+            </div>
+        </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="categories" class="col-sm-2 col-form-label">Categories</label>
+            <div class ="col-sm-10">
+            <select name="category" id="category" class="custom-select" [(ngModel)]="form.category">
+              <option *ngFor="let categories of cateType " [value]="categories">{{categories}}</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="row">
+          <label for="conditions" class="col-sm-2 col-form-label">Condition</label>
+          <label class="btn btn-dark bg-dark border-0" *ngFor="let condition of form.conditions"  >
+           <input type="checkbox" [(ngModel)]="condition.selected" name="condition"> {{condition.name}}
+         </label>
+            </div>
+
+            <div class="row">
+              <label for="conditions" class="col-sm-2 col-form-label">Shipping Options</label>
+              <label class="btn btn-dark bg-dark border-0" *ngFor="let shipping of form.shippings"  >
+               <input type="checkbox" [(ngModel)]="shipping.selected" name="shippings"> {{shipping.name}}
+             </label>
+                </div>
+
+              <div class="form-group row">
+                <label for="distance" class="col-sm-2 col-form-label">Distance(Miles) </label>
+                <div class ="col-sm-10">
+                <input type="text" class="form-control" required placeholder="10"
+                [(ngModel)]="form.distance" name="distance" #distance="ngModel">
+              </div>
+              </div>
+
+              <div class="form-group row">
+                <label for="from" class="col-sm-2 col-form-label">From <span class="required">*</span></label>
+                <div class="col-sm-10">
+                  <div class="form-check">
+                      <input class="form-check-input" [checked]="useCurLoc" type="radio"(click)="localClick(0)" [value]="true" [(ngModel)]="form.useCurLoc" name="use_currloc">
+                      <label class="form-check-label" for="here">Current Location</label>
+                    </div>
+                  <div class="form-check">
+                          <input class="form-check-input" type="radio" (click)="localClick(1)" [checked]="!useCurLoc" [value]="false" [(ngModel)]="form.useCurLoc" name="use_currloc">
+                          <label class="form-check-label" for="other">Others. Please specify zip code:</label>
+                          <input class="form-check-input"  type="text"[disabled]="useCurLoc" class="form-control" [(ngModel)]="form.location" name="location" required >
+
+
+                  </div>
+
+            </div>
+         </div>
+         <div class="form-group row" id="search-btn-group">
+            <div class="col-sm-10">
+              <button type="submit" class="btn btn-primary" id="search-btn" [disabled]="!gotZip || searchForm.invalid" >
+                Search</button>
+              <button type="reset" class="btn btn-outline-secondary" id="clear-btn" (click)="clear()">Clear</button>
+            </div>
+          </div>
+      </form>
+      </div>
+
+
+  </div>
+
+
+
+
+
