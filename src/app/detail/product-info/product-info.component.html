@@ -18,9 +18,16 @@
         <td>{{product.location}}</td>
       </tr>
 
-      <tr *ngIf="product.policy">
+      <tr *ngIf="product.returnAccepted">
         <th scope="row">Return Policy</th>
-        <td>{{product.policy}}</td>
+        <td>{{product.returnAccepted}} within {{product.returnWithin}}</td>
+      </tr>
+      <tr *ngFor="let rowdata of product.specifics">
+        <th scope="row">{{rowdata.Name}}</th>
+        <td>{{rowdata.Value}}</td>
+
+        <td>
+        </td>
       </tr>
     </tbody>
   </table>

@@ -1,0 +1,33 @@
+<div id="info-div" *ngIf="seller" class="table-responsive">
+    <table class="table table-striped">
+      <tbody>
+        <tr *ngIf="seller.feedbackScore">
+          <th scope="row">Feedback Score</th>
+          <td>{{seller.feedbackScore}}</td>
+        </tr>
+        <tr *ngIf="seller.popularity">
+          <th scope="row">Popularity</th>
+          <td>{{seller.popularity}}</td>
+        </tr>
+        <tr *ngIf="seller.ratingStar">
+          <th scope="row">Feedback Rating Star</th>
+          <td>{{seller.ratingStar}}</td>
+        </tr>
+        <tr *ngIf="seller.topRated">
+          <th scope="row">Top Rated</th>
+          <td>{{seller.topRated}}</td>
+        </tr>
+
+        <tr *ngIf="seller.storeName">
+          <th scope="row">Store Name</th>
+          <td>{{seller.storeName}} </td>
+        </tr>
+
+        <tr *ngIf="seller.buyAt">
+            <th scope="row">Buy Product At</th>
+            <td>{{seller.buyAt}} </td>
+          </tr>
+
+      </tbody>
+    </table>
+  </div>

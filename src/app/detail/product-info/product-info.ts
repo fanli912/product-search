@@ -3,6 +3,7 @@ export class Product {
   subtitle: string;
   price: string;
   location: string;
-  policy: string;
-  specifics: string;
+  returnAccepted: string;
+  returnWithin: string;
+  specifics: [];
 }

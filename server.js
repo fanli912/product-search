@@ -120,7 +120,7 @@ else if(category=="Video Games & Consoles") {
 app.post("/detail", async(req, res) => {
   try{
     let itemId = req.body["itemId"]
-    let url = "http://open.api.ebay.com/shopping?callname=GetSingleItem&responseencoding=JSON&appid=LiFan-mytestap-PRD-816e2f149-f30e199f&siteid=0&version=967&ItemID="+itemId+"&IncludeSelector=Description,Details,Item%20Specifics"
+    let url = "http://open.api.ebay.com/shopping?callname=GetSingleItem&responseencoding=JSON&appid=LiFan-mytestap-PRD-816e2f149-f30e199f&siteid=0&version=967&ItemID="+itemId+"&IncludeSelector=Description,Details,ItemSpecifics"
     axios.get(url).then(response => {
       res.send(response["data"]["Item"])
     })

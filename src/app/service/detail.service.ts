@@ -31,7 +31,6 @@ export class DetailService {
     this.http
       .post("http://localhost:3000/detail", {"itemId": itemId})
       .subscribe(detailData => {
-        console.log(detailData);
         this.detailJson = detailData
        this._details.next(this.detailJson);
 

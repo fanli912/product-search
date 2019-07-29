@@ -1,6 +1,6 @@
 import { Component,OnInit,Input} from "@angular/core";
 import { trigger, state, style, transition, animate} from "@angular/animations";
-
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { SearchService } from "../service/search.service";
 import { DetailService } from "../service/detail.service";
@@ -12,16 +12,17 @@ import { DetailService } from "../service/detail.service";
   animations: [
     trigger("slideAnimation", [
       transition("* => right", [
-        style({right: '-100%'}),
-        animate('.5s ease-in', style({right:0}))
+        style({transform: 'translateX(100%)'}),
+        animate('300ms ease-in', style({transform: 'translateX(0%)'}))
       ]),
       transition("* => left", [
-        style({left: '-100%'}),
-        animate('1s ease-in', style({left:0}))
+        style({transform: 'translateX(-100%)'}),
+        animate('300ms ease-in', style({transform: 'translateX(0%)'}))
       ]),
     ])
   ]
 })
+
 export class ResultContainerComponent {
   active:any;
   clear = false;
@@ -29,6 +30,8 @@ export class ResultContainerComponent {
   isShowFavorite = false;
   resultShowClass = "btn btn-primary";
   favoriteShowClass = "btn btn-outline-primary";
+
+
 
   slideRight(panel) {
     this.clear = false;
@@ -38,6 +41,7 @@ export class ResultContainerComponent {
   slideLeft(event) {
     this.clear = false;
     this.active = event.slide;
+    console.log(this.active)
   }
 
   showResult() {
@@ -50,3 +54,5 @@ export class ResultContainerComponent {
   }
 
 }
+
+// animation from https://stackoverflow.com/questions/47248898/angular-4-5-6-7-simple-example-of-slide-in-out-animation-on-ngif
