@@ -41,7 +41,6 @@ export class ResultContainerComponent {
   slideLeft(event) {
     this.clear = false;
     this.active = event.slide;
-    console.log(this.active)
   }
 
   showResult() {

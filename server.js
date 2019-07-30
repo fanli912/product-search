@@ -131,6 +131,22 @@ app.post("/detail", async(req, res) => {
 
 })
 
+app.post("/similar", async(req, res) => {
+  try{
+    let itemId = req.body["itemId"]
+
+    let url = "http://svcs.ebay.com/MerchandisingService?OPERATION-NAME=getSimilarItems&SERVICE-NAME=MerchandisingService&SERVICE-VERSION=1.1.0&CONSUMER-ID=LiFan-mytestap-PRD-816e2f149-f30e199f&RESPONSE-DATA-FORMAT=JSON&REST-PAYLOAD&itemId="+itemId+"&maxResults=20"
+    axios.get(url).then(response => {
+      res.send(response["itemRecommendations"]["item"])
+      console.log(response)
+    })
+  } catch(err) {
+    console.log(err);
+    res.status(503).send(err);
+  }
+
+})
+
 
 /**
  * Get port from environment and store in Express.

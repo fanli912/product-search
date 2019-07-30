@@ -24,6 +24,7 @@ export class DetailComponent {
   infoJson: Product
   shipJson: Shipping
   sellerJson: Seller
+  similar: any
   private activeId = "info-tab";
 
   constructor(
@@ -39,6 +40,13 @@ export class DetailComponent {
         console.log(data)
       });
     });
+    this.dService.similar.subscribe(data => {
+      this.zone.run(() => {
+        this.similar = data;
+        console.log(data)
+      });
+    });
+
 }
 
 setInfo(data) {

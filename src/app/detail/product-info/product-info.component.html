@@ -1,9 +1,10 @@
+
 <div id="info-div" *ngIf="product" class="table-responsive">
   <table class="table table-striped">
     <tbody>
       <tr *ngIf="product.images">
         <th scope="row">Product Images</th>
-        <td>{{product.images}}</td>
+        <td> <a (click)="open(content)">View Product Images Here</a></td>
       </tr>
       <tr *ngIf="product.subtitle">
         <th scope="row">Subtitle</th>
@@ -32,3 +33,41 @@
     </tbody>
   </table>
 </div>
+
+<tr *ngFor="let rowdata of pagedItems; index as i">
+  <th scope="row">{{i+1}}</th>
+  <td>
+    <img src={{rowdata.galleryURL}} alt="icon" class="product-pic">
+  </td>
+  <td><a (click)="getDetails(rowdata['itemId'][0])">{{simplifyTitle(rowdata["title"][0])}}</a></td>
+  <td>{{rowdata["sellingStatus"][0]["currentPrice"][0]["__value__"][0]}}</td>
+  <td>{{rowdata["shippingInfo"][0]["shippingType"][0]}}</td>
+  <td>{{rowdata["postalCode"]}}</td>
+  <td>{{rowdata["sellerInfo"][0]["sellerUserName"][0]}}</td>
+  <td>
+  </td>
+</tr>
+
+
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Product Images</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <ngb-carousel>
+      <ng-template ngbSlide *ngFor="let photo of product.images">
+        <div class="picsum-img-wrapper">
+          <a href={{photo}} target="_blank">
+            <img [src]="photo" width="100%">
+          </a>
+        </div>
+      </ng-template>
+    </ngb-carousel>
+  </div>
+</ng-template>
+
+
+

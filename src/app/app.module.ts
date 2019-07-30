@@ -15,7 +15,8 @@ import {  InfoTabComponent} from './detail/product-info/product-info.component';
 import { PhotoTabComponent } from './detail/photo-tab/photo-tab.component';
 import { ShippingTabComponent } from './detail/shipping-tab/shipping-tab.component';
 import { SellerTabComponent } from './detail/seller-tab/seller-tab.component';
-
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { SimilarTabComponent } from './detail/similar-tab/similar-tab.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { SellerTabComponent } from './detail/seller-tab/seller-tab.component';
     InfoTabComponent,
     PhotoTabComponent,
     ShippingTabComponent,
-    SellerTabComponent
+    SellerTabComponent,
+    SimilarTabComponent
   ],
   imports: [
     HttpClientModule,
@@ -37,7 +39,7 @@ import { SellerTabComponent } from './detail/seller-tab/seller-tab.component';
     ReactiveFormsModule,
     MatFormFieldModule,
     BrowserAnimationsModule,
-
+    NgbModule
 
   ],
   providers: [],

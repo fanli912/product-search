@@ -71,6 +71,11 @@ getDetails(itemId) {
   this.slide.emit({ slide: "left"});
 }
 
+
+getSimilar(itemId) {
+  this.dService.getSimilar(itemId);
+}
+
 highlightRow(placeId) {
   this.selectedRow = placeId;
 }
