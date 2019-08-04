@@ -1,0 +1,16 @@
+<div *ngFor="let item of similar" class="card">
+  <div class="media">
+    <div class="avatar mr-3">
+      <a [href]="item['imageURL']">
+        <img [src]="item['imageURL']" >
+      </a>
+    </div>
+    <div class="media-body">
+      <a class="mt-0">{{item["title"]}}</a>
+      <br>
+      <span>{{item["buyItNowPrice"]["__value__"]}}</span>
+      <div>{{item["shippingCost"]["__value__"]}}</div>
+      <div>{{item["timeLeft"]}}</div>
+    </div>
+  </div>
+  </div>

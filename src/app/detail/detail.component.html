@@ -24,17 +24,14 @@
     <div class="tab-pane" [class.active]="activeId==='info-tab'" role="tabpanel" id="info-tab-panel" aria-labelledby="info-tab">
       <app-info-tab [product]="infoJson"></app-info-tab>
     </div>
-    <!-- <div class="tab-pane" [class.active]="activeId==='photos-tab'" role="tabpanel" id="photos-tab-panel" aria-labelledby="photos-tab">
-      <app-photos-tab [photos]="photoJson"></app-photos-tab>
-    </div> -->
     <div class="tab-pane" [class.active]="activeId==='shipping-tab'" role="tabpanel" id="shipping-tab-panel" aria-labelledby="shipping-tab">
       <app-shipping-tab [shipping]=" shipJson"></app-shipping-tab>
     </div>
     <div class="tab-pane" [class.active]="activeId==='seller-tab'" role="tabpanel" id="seller-tab-panel" aria-labelledby="seller-tab">
         <app-seller-tab [seller]=" sellerJson"></app-seller-tab>
       </div>
-    <!-- <div class="tab-pane" [class.active]="activeId==='reviews-tab'" role="tabpanel" id="reviews-tab-panel" aria-labelledby="reviews-tab">
-      <app-reviews-tab [ggReviews]="reviewJson"></app-reviews-tab>
-    </div> -->
+    <div class="tab-pane" [class.active]="activeId==='similar-products-tab'" role="tabpanel" id="similar-tab-panel" aria-labelledby="similar-tab">
+      <app-similar-tab [similar]="similarJson"></app-similar-tab>
+    </div>
   </div>
-</div>
+

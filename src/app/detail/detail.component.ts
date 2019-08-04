@@ -14,7 +14,6 @@ export class DetailComponent {
 
   private tabs = [
     { id: "info-tab", title: "Product" },
-    { id: "photos-tab", title: "Photos" },
     { id: "shipping-tab", title: "Shipping" },
     { id: "seller-tab", title: "Seller" },
     { id: "similar-products-tab", title: "Similar Products" }
@@ -24,7 +23,7 @@ export class DetailComponent {
   infoJson: Product
   shipJson: Shipping
   sellerJson: Seller
-  similar: any
+  similarJson: any
   private activeId = "info-tab";
 
   constructor(
@@ -34,16 +33,15 @@ export class DetailComponent {
     this.dService.details.subscribe(data => {
       this.zone.run(() => {
         this.details = data;
+        console.log(data)
         this.setInfo(data);
         this.setShipping(data);
         this.setSeller(data);
-        console.log(data)
       });
     });
     this.dService.similar.subscribe(data => {
       this.zone.run(() => {
-        this.similar = data;
-        console.log(data)
+        this.similarJson = data;
       });
     });
 
@@ -77,6 +75,7 @@ setInfo(data) {
 
 slideDetail() {
   this.slide.emit("right");
+  this.activeId = "info-tab"
 }
 
 setShipping(data) {
@@ -120,12 +119,12 @@ setSeller(data) {
   if (data["Seller"]["TopRatedSeller"]) {
     tmpJson.topRated= data["Seller"]["TopRatedSeller"];
   }
-  if (data["Seller"]["Storefront"]) {
-    tmpJson.storeName= data["Seller"]["Storefront"];
-  }
-  if (data["Seller"]["Storefront"]) {
-    tmpJson.buyAt= data["Seller"]["StoreURL"];
-  }
+  // if (data["Storefront"]["StoreName"]) {
+  //   tmpJson.storeName= data["Storefront"]["StoreName"];
+  // }
+  // if (data["Storefront"]["StoreURL"]) {
+  //   tmpJson.buyAt= data["Storefront"]["StoreURL"];
+  // }
 
   this.sellerJson = tmpJson;
 }

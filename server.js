@@ -120,9 +120,10 @@ else if(category=="Video Games & Consoles") {
 app.post("/detail", async(req, res) => {
   try{
     let itemId = req.body["itemId"]
-    let url = "http://open.api.ebay.com/shopping?callname=GetSingleItem&responseencoding=JSON&appid=LiFan-mytestap-PRD-816e2f149-f30e199f&siteid=0&version=967&ItemID="+itemId+"&IncludeSelector=Description,Details,ItemSpecifics"
+    let url = "http://open.api.ebay.com/shopping?callname=GetSingleItem&responseencoding=JSON&appid=LiFan-mytestap-PRD-816e2f149-f30e199f&siteid=0&version=967&ItemID="+itemId+"&IncludeSelector=ShippingInfo,Description,Details,ItemSpecifics"
     axios.get(url).then(response => {
       res.send(response["data"]["Item"])
+      console.log(response["data"]["Item"])
     })
   } catch(err) {
     console.log(err);
@@ -134,11 +135,9 @@ app.post("/detail", async(req, res) => {
 app.post("/similar", async(req, res) => {
   try{
     let itemId = req.body["itemId"]
-
     let url = "http://svcs.ebay.com/MerchandisingService?OPERATION-NAME=getSimilarItems&SERVICE-NAME=MerchandisingService&SERVICE-VERSION=1.1.0&CONSUMER-ID=LiFan-mytestap-PRD-816e2f149-f30e199f&RESPONSE-DATA-FORMAT=JSON&REST-PAYLOAD&itemId="+itemId+"&maxResults=20"
     axios.get(url).then(response => {
-      res.send(response["itemRecommendations"]["item"])
-      console.log(response)
+      res.send(response["data"]["getSimilarItemsResponse"]["itemRecommendations"]["item"])
     })
   } catch(err) {
     console.log(err);

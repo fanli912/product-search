@@ -1,10 +1,6 @@
 import { Component, OnInit, OnChanges, Input } from "@angular/core";
 import { Product } from "./product-info";
-import { SearchService } from "../../service/search.service";
-import { DetailService } from "../../service/detail.service";
-import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
-
 @Component({
   selector: "app-info-tab",
   templateUrl: "./product-info.component.html"

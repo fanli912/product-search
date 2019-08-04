@@ -54,7 +54,6 @@ export class DetailService {
   this.http
     .post("http://localhost:3000/similar", {"itemId": itemId})
     .subscribe(similarData => {
-      console.log(similarData)
       this.similarJson = similarData
      this._similar.next(this.similarJson);
 

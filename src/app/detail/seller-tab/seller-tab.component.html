@@ -1,3 +1,4 @@
+
 <div id="info-div" *ngIf="seller" class="table-responsive">
     <table class="table table-striped">
       <tbody>
@@ -7,7 +8,26 @@
         </tr>
         <tr *ngIf="seller.popularity">
           <th scope="row">Popularity</th>
-          <td>{{seller.popularity}}</td>
+          <td>
+              <div class="progress-percentage-wrapper">
+                  <div class="progress-percentage ng-cloak">{{seller.popularity}}</div>
+                  <round-progress
+                  current="{{seller.popularity}}"
+                  [max]="100"
+                  [color]="'#45ccce'"
+                  [background]="'#eaeaea'"
+                  [radius]="5"
+                  [stroke]="0.2"
+                  [rounded]="true"
+                  [clockwise]="false"
+                  [responsive]="true"
+                  [duration]="800"
+                  [animation]="'easeInOutQuart'"
+                  [animationDelay]="0"
+                  ></round-progress>
+                  </div>
+
+          </td>
         </tr>
         <tr *ngIf="seller.ratingStar">
           <th scope="row">Feedback Rating Star</th>
@@ -18,7 +38,7 @@
           <td>{{seller.topRated}}</td>
         </tr>
 
-        <tr *ngIf="seller.storeName">
+        <!-- <tr *ngIf="seller.storeName">
           <th scope="row">Store Name</th>
           <td>{{seller.storeName}} </td>
         </tr>
@@ -26,7 +46,7 @@
         <tr *ngIf="seller.buyAt">
             <th scope="row">Buy Product At</th>
             <td>{{seller.buyAt}} </td>
-          </tr>
+          </tr> -->
 
       </tbody>
     </table>

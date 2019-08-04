@@ -1,9 +1,5 @@
 import { Component,OnInit,Input} from "@angular/core";
 import { trigger, state, style, transition, animate} from "@angular/animations";
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-
-import { SearchService } from "../service/search.service";
-import { DetailService } from "../service/detail.service";
 
 @Component({
   selector: "app-result-container",
