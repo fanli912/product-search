@@ -1,16 +1,65 @@
-<div *ngFor="let item of similar" class="card">
+<div class="alert alert-warning" role="alert" *ngIf="!similar">
+    No record!
+  </div>
+
+  <div class="row review-buttons">
+      <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button"data-toggle="dropdown" aria-haspopup="true"
+          aria-expanded="false">{{orderBy[selectedOrderBy]}}</button>
+        <div class="dropdown-menu" aria-labelledby="choose-orderby">
+          <a *ngFor="let type of orderBy; index as i" (click)="setOrderBy(i)" class="dropdown-item">{{type}}</a>
+        </div>
+      </div>
+      <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="choose-order" data-toggle="dropdown" aria-haspopup="true"
+          aria-expanded="false">{{orderTypes[selectedOrderType]}}</button>
+        <div class="dropdown-menu" aria-labelledby="choose-order">
+          <a *ngFor="let type of orderTypes; index as i" (click)="setOrderType(i)" class="dropdown-item">{{type}}</a>
+        </div>
+      </div>
+    </div>
+
+
+<div *ngIf="similar">
+<div *ngFor="let item of similar | slice:0:5" class="card ">
   <div class="media">
     <div class="avatar mr-3">
       <a [href]="item['imageURL']">
-        <img [src]="item['imageURL']" >
+        <img class="similarImage" [src]="item['imageURL']" >
       </a>
     </div>
     <div class="media-body">
-      <a class="mt-0">{{item["title"]}}</a>
+      <a class="mt-0 title">{{item["title"]}}</a>
       <br>
-      <span>{{item["buyItNowPrice"]["__value__"]}}</span>
-      <div>{{item["shippingCost"]["__value__"]}}</div>
-      <div>{{item["timeLeft"]}}</div>
+      <span class="price">Price: ${{item["buyItNowPrice"]["__value__"]}}</span>
+      <div class="shipping">Shipping Cost: ${{item["shippingCost"]["__value__"]}}</div>
+      <div class="left">Days Left: {{dayLeft(item["timeLeft"])}}</div>
     </div>
   </div>
   </div>
+
+  <div *ngIf="showMore">
+      <div *ngFor="let item of similar | slice: 5" class="card">
+          <div class="media">
+              <div class="avatar mr-3">
+                <a [href]="item['imageURL']">
+                  <img class="similarImage" [src]="item['imageURL']" >
+                </a>
+              </div>
+              <div class="media-body">
+                <a class="mt-0 title">{{item["title"]}}</a>
+                <br>
+                <span class="price">Price: ${{item["buyItNowPrice"]["__value__"]}}</span>
+                <div class="shipping">Shipping Cost: ${{item["shippingCost"]["__value__"]}}</div>
+                <div class="left">Days Left: {{dayLeft(item["timeLeft"])}}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+   <button *ngIf="!showMore" class="btn btn-dark" (click)="more()">Show More</button>
+   <button  *ngIf="showMore" class="btn btn-dark" (click)="less()">Show Less</button>
+  </div>
+
+
+

@@ -1,0 +1,26 @@
+.similarImage {
+   width:155px;
+   height: 155px;
+}
+
+.price {
+  color: lightgreen;
+}
+
+.shipping {
+  color: orange;
+}
+
+.title {
+  color: blueviolet
+}
+
+.card {
+  margin-top: 5px;
+}
+
+.btn {
+  margin: auto;
+}
+
+

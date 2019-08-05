@@ -1,10 +1,9 @@
 import { Component, Input, EventEmitter,Output } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { SearchService } from "../service/search.service";
 import { PagerService } from '../service/pager.service';
 import { DetailService} from '../service/detail.service';
-import { trigger, state, style, transition, animate} from "@angular/animations";
+
 
 @Component ({
     selector:'app-result-table',
