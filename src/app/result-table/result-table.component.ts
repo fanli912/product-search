@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { SearchService } from "../service/search.service";
 import { PagerService } from '../service/pager.service';
 import { DetailService} from '../service/detail.service';
+import { WishListService} from '../service/wishlist.service';
 
 
 @Component ({
@@ -17,6 +18,7 @@ export class ResultTalbeComponent{
   showResult = false;
   resultJson = null;
   progress = false;
+  isFavorite: any;
 
   @Input("item") selectedRow: any;
   @Output() slide = new EventEmitter<any>();
@@ -31,7 +33,7 @@ export class ResultTalbeComponent{
     pagedItems: any[];
 
 
-  constructor(private searchService: SearchService, private http: HttpClient, private pagerService: PagerService, private dService: DetailService) {
+  constructor(private searchService: SearchService, private http: HttpClient, private pagerService: PagerService, private dService: DetailService, private wService:WishListService) {
     this.searchService.resultJson.subscribe(data => {
       this.resultJson = data
       this.showResult = true;
@@ -75,8 +77,35 @@ getSimilar(itemId) {
   this.dService.getSimilar(itemId);
 }
 
-highlightRow(placeId) {
-  this.selectedRow = placeId;
+highlightRow(itemId) {
+  this.selectedRow = itemId;
+}
+
+setFavorite(index) {
+  // if (this.isFavorite[index]) {
+  //   this.wService.removeFavorite(this.resultJson[index]["place_id"]);
+  //   this.isFavorite[index] = false;
+  // } else {
+    this.wService.saveFavorite(
+      this.pagedItems[index]["sellingStatus"][0]["currentPrice"][0]["__value__"],
+      this.pagedItems[index]["sellingStatus"][0]["currentPrice"][0]["__value__"],
+      this.pagedItems[index]["shippingInfo"][0]["shippingType"][0],
+      this.pagedItems[index]["postalCode"],
+      this.pagedItems[index]["sellerInfo"][0]["sellerUserName"][0]);
+  //   );
+  //   this.isFavorite[index] = true;
+  // }
+}
+
+checkFavorite() {
+  // if (this.resultJson) {
+  //   let place_id_arr = this.resultJson.map(data => data.place_id);
+  //   this.isFavorite = this.wService.isFavorited(place_id_arr);
+  // }
+}
+
+showDetails() {
+  this.slide.emit({ slide: "left"});
 }
 
 

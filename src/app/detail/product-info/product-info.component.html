@@ -4,7 +4,7 @@
     <tbody>
       <tr *ngIf="product.images">
         <th scope="row">Product Images</th>
-        <td> <a (click)="open(content)">View Product Images Here</a></td>
+        <td> <a (click)="open(content)">Click to View Product Images Here</a></td>
       </tr>
       <tr *ngIf="product.subtitle">
         <th scope="row">Subtitle</th>
@@ -44,8 +44,7 @@
   <td>{{rowdata["shippingInfo"][0]["shippingType"][0]}}</td>
   <td>{{rowdata["postalCode"]}}</td>
   <td>{{rowdata["sellerInfo"][0]["sellerUserName"][0]}}</td>
-  <td>
-  </td>
+
 </tr>
 
 

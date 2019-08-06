@@ -12,19 +12,11 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 
 export class SearchFromComponent{
-
+  location: string;
   autoCom: any[]
   zip: string;
   gotZip: boolean = false
   useCurLoc: boolean = true;
-
-  options = [
-    {name: 'George Michael'},
-    {name: 'Aretha Franklin'},
-    {name: 'Adel'},
-    {name: 'Janet Jackson'},
-  ];
-
 
   form = SearchForm;
 
@@ -32,6 +24,9 @@ export class SearchFromComponent{
 
   }
 
+  getAddressOnChange(event, location) {
+    this.form.location = (<HTMLInputElement>document.getElementById('loc-input')).value;
+  }
 
   localClick(x) {
     if(x==0){

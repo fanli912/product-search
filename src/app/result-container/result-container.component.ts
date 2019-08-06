@@ -48,6 +48,15 @@ export class ResultContainerComponent {
     this.favoriteShowClass = "btn btn-outline-primary";
   }
 
+  showWishList() {
+    this.clear = false;
+    this.isShowResult = false;
+    this.isShowFavorite = true;
+    this.active = 'right';
+    this.resultShowClass = "btn btn-outline-primary";
+    this.favoriteShowClass = "btn btn-primary";
+  }
+
 }
 
 // animation from https://stackoverflow.com/questions/47248898/angular-4-5-6-7-simple-example-of-slide-in-out-animation-on-ngif

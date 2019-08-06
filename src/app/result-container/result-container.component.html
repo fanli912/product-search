@@ -17,8 +17,8 @@
 
     <div class="slide-div" [hidden]="active === 'left'">
       <div>
-        <app-result-table (slide)="slideLeft($event)"></app-result-table>
-        <!-- <app-favorite (slide)="slideLeft($event)" [class.hide]="!isShowFavorite" ></app-favorite> -->
+        <app-result-table (slide)="slideLeft($event)" [hidden]="!isShowResult"></app-result-table>
+        <app-wishlist (slide)="slideLeft($event)" [hidden]="!isShowFavorite" ></app-wishlist>
       </div>
     </div>
   </div>

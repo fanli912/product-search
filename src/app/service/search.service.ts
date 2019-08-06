@@ -1,8 +1,6 @@
 
-import { SearchForm } from '../search-form/search-form';
 import { Injectable, EventEmitter, Output } from "@angular/core";
-import { HttpClient, HttpHeaders, HttpParams } from "@angular/common/http";
-import { Observable, of } from 'rxjs';
+import { HttpClient, HttpHeaders} from "@angular/common/http";
 import { map } from 'rxjs/operators';
 import { debounceTime } from 'rxjs/internal/operators/debounceTime';
 import { Subject } from "rxjs";
@@ -52,7 +50,7 @@ export class SearchService {
       .subscribe(responseData => {
         this.jsonData = responseData
         this._resultJson.next(this.jsonData);
-
+        console.log(responseData)
       });
   }
 

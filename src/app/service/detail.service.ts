@@ -37,6 +37,7 @@ export class DetailService {
         this.detailJson = detailData
        this._details.next(this.detailJson);
 
+
       });
   }
 
