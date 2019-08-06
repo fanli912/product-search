@@ -10,3 +10,17 @@
   font-weight: bold;
   text-align: center;
 }
+
+.container-fluid {
+  height: 600px;
+}
+
+#form-header {
+
+  font-size: 35px;
+  padding-bottom: 10px;
+}
+
+.search-form {
+  margin-top: 25px;
+}

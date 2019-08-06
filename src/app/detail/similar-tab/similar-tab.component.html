@@ -29,7 +29,7 @@
       </a>
     </div>
     <div class="media-body">
-      <a class="mt-0 title">{{item["title"]}}</a>
+      <a class="mt-0 title" [href]="item['viewItemURL']">{{item["title"]}}</a>
       <br>
       <span class="price">Price: ${{item["buyItNowPrice"]["__value__"]}}</span>
       <div class="shipping">Shipping Cost: ${{item["shippingCost"]["__value__"]}}</div>

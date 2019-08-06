@@ -18,9 +18,19 @@ export class SearchFromComponent{
   gotZip: boolean = false
   useCurLoc: boolean = true;
 
+  options = [
+    {name: 'George Michael'},
+    {name: 'Aretha Franklin'},
+    {name: 'Adel'},
+    {name: 'Janet Jackson'},
+  ];
+
+
   form = SearchForm;
 
-  constructor(private searchService: SearchService, private http: HttpClient) {}
+  constructor(private searchService: SearchService, private http: HttpClient) {
+
+  }
 
 
   localClick(x) {
@@ -53,23 +63,20 @@ getZip() {
   })
 }
 getSuggestions(code: string) {
+  if(code == "") {this.autoCom = null}
+  else {
   this.http.get<any[]>('http://api.geonames.org/postalCodeSearchJSON?postalcode_startsWith='+code+'&username=fanli912&country=US&maxRows=5')
     .subscribe(data => {
       this.autoCom = data['postalCodes'];
-    });
+      console.log(this.autoCom)
+    });}
 }
 
-filterStates(val: string) {
-  if (val) {
-    const filterValue = val.toLowerCase();
-    return this.autoCom.filter(state => state.toLowerCase().indexOf(filterValue) === 0);
-  }
-  return this.autoCom;
-}
 
 ngOnInit() {
   this.getZip();
 
 }
+
 
 }

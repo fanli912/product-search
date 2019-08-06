@@ -18,6 +18,7 @@ import { SellerTabComponent } from './detail/seller-tab/seller-tab.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { SimilarTabComponent } from './detail/similar-tab/similar-tab.component';
 import {RoundProgressModule} from 'angular-svg-round-progressbar';
+import {MatInputModule} from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import {RoundProgressModule} from 'angular-svg-round-progressbar';
     MatFormFieldModule,
     BrowserAnimationsModule,
     NgbModule,
-    RoundProgressModule
+    RoundProgressModule,
+    MatInputModule
 
   ],
   providers: [],
