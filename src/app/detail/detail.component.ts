@@ -119,12 +119,6 @@ setSeller(data) {
   if (data["Seller"]["TopRatedSeller"]) {
     tmpJson.topRated= data["Seller"]["TopRatedSeller"];
   }
-  // if (data["Storefront"]["StoreName"]) {
-  //   tmpJson.storeName= data["Storefront"]["StoreName"];
-  // }
-  // if (data["Storefront"]["StoreURL"]) {
-  //   tmpJson.buyAt= data["Storefront"]["StoreURL"];
-  // }
 
   this.sellerJson = tmpJson;
 }
@@ -132,6 +126,16 @@ setSeller(data) {
 
 setActive(id) {
   this.activeId = id;
+}
+
+
+facebook() {
+  let link = this.details["ViewItemURLForNaturalSearch"]
+  let t = this.details["Title"]
+  let p = this.details["CurrentPrice"]["Value"]
+  let quote = "Buy "+t+" at $"+p+" from link below."
+  let url = "https://www.facebook.com/dialog/share?app_id=409144946516326&display=popup&href="+link+"&quote="+quote;
+  var newWin = window.open(url, "tweet", "height=600, width=600");
 }
 
 

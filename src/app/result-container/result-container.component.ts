@@ -25,7 +25,7 @@ export class ResultContainerComponent {
   isShowResult = true;
   isShowFavorite = false;
   resultShowClass = "btn btn-primary";
-  favoriteShowClass = "btn btn-outline-primary";
+  wishlistShowClass = "btn btn-outline-primary";
 
 
 
@@ -45,7 +45,7 @@ export class ResultContainerComponent {
     this.isShowResult = true;
     this.active = 'right';
     this.resultShowClass = "btn btn-primary";
-    this.favoriteShowClass = "btn btn-outline-primary";
+    this. wishlistShowClass = "btn btn-outline-primary";
   }
 
   showWishList() {
@@ -54,7 +54,7 @@ export class ResultContainerComponent {
     this.isShowFavorite = true;
     this.active = 'right';
     this.resultShowClass = "btn btn-outline-primary";
-    this.favoriteShowClass = "btn btn-primary";
+    this.wishlistShowClass = "btn btn-primary";
   }
 
 }
