@@ -18,7 +18,7 @@
             <label for="categories" class="col-sm-2 col-form-label">Categories</label>
             <div class ="col-sm-8 ">
             <select name="category" id="category" class="custom-select" [(ngModel)]="form.category" [value]= "form.category" >
-              <option *ngFor="let categories of cateType " [value]="categories">{{categories}}</option>
+              <option *ngFor="let categories of cateType " [value]="form.category">{{categories}}</option>
             </select>
           </div>
         </div>

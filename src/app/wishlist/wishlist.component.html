@@ -1,0 +1,47 @@
+<!-- <div class="details-btn">
+    <button class="btn btn-outline-secondary" [disabled]="!selectedPlace" (click)="showDetails(); false;">Details
+      <i class="fas fa-angle-right"></i>
+    </button>
+  </div> -->
+  <div id="wishlist-div">
+    <div class="alert alert-warning" role="alert" *ngIf="!wishlist">
+      No records!
+    </div>
+    <div *ngIf="wishlist">
+      <div class="table-responsive">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Image</th>
+              <th scope="col">Title</th>
+              <th scope="col">Price</th>
+              <th scope="col">Shipping Option</th>
+              <th scope="col">Seller</th>
+              <th scope="col">Wish List</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of wishlist; index as i" >
+              <th scope="row">
+                {{i+1}}
+              </th>
+              <td>
+                <img src={{item.image}} alt="icon" class="category-icon">
+              </td>
+              <td><a (click)="getDetails(item.key)" >{{item.title}}</a></td>
+              <td>{{item.price}}</td>
+              <td>{{item.shipping}}</td>
+              <td>{{item.seller}}</td>
+              <td>
+                <button type="button" class="btn btn-outline" (click)="removeFavorite(item.key)">
+                  <i class="fas fa-trash-alt"></i>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>

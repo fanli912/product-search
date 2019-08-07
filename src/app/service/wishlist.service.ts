@@ -21,9 +21,8 @@ export class WishListService {
     title: string,
     price: string,
     shipping: string,
-    key: string,
-    zip: string,
-    seller: string
+    seller: string,
+    key: string
   ) {
     let timestamp = new Date();
     let wishJson = {
@@ -31,9 +30,8 @@ export class WishListService {
       title: title,
       price: price,
       shipping: shipping,
-      zip:zip,
       seller:seller,
-
+      key : key,
       timestamp: timestamp.getTime()
     };
     localStorage.setItem(key, JSON.stringify(wishJson));
@@ -89,7 +87,7 @@ export class WishListService {
     this._wishlist.next(returnJson);
     this._isStorageChange.next(true);
   }
-  removeFavorite(key: string) {
+  removeWishList(key: string) {
     localStorage.removeItem(key);
     this.getAllFavorite(this.page);
   }

@@ -18,7 +18,7 @@ export class ResultTalbeComponent{
   showResult = false;
   resultJson = null;
   progress = false;
-  isFavorite: any;
+  myMap = new Map()
 
   @Input("item") selectedRow: any;
   @Output() slide = new EventEmitter<any>();
@@ -82,27 +82,28 @@ highlightRow(itemId) {
 }
 
 setFavorite(index) {
-  // if (this.isFavorite[index]) {
-  //   this.wService.removeFavorite(this.resultJson[index]["place_id"]);
-  //   this.isFavorite[index] = false;
-  // } else {
+  //  if (this.isFavorite[index]) {
+  //    this.wService.removeFavorite(this.pagedItems[index]["itemId"]);
+  //    this.isFavorite[index] = false;
+  //  } else {
     this.wService.saveFavorite(
-      this.pagedItems[index]["sellingStatus"][0]["currentPrice"][0]["__value__"],
+      this.pagedItems[index]["galleryURL"],
+      this.pagedItems[index]["title"],
       this.pagedItems[index]["sellingStatus"][0]["currentPrice"][0]["__value__"],
       this.pagedItems[index]["shippingInfo"][0]["shippingType"][0],
-      this.pagedItems[index]["postalCode"],
-      this.pagedItems[index]["sellerInfo"][0]["sellerUserName"][0]);
-  //   );
+      this.pagedItems[index]["sellerInfo"][0]["sellerUserName"][0],
+      this.pagedItems[index]["itemId"])
+
   //   this.isFavorite[index] = true;
-  // }
+  //  }
 }
 
-checkFavorite() {
-  // if (this.resultJson) {
-  //   let place_id_arr = this.resultJson.map(data => data.place_id);
-  //   this.isFavorite = this.wService.isFavorited(place_id_arr);
-  // }
-}
+// checkFavorite() {
+//    if (this.resultJson) {
+//      let place_id_arr = this.resultJson.map(data => data.place_id);
+//      this.isFavorite = this.wService.isFavorited(place_id_arr);
+//   // }
+// }
 
 showDetails() {
   this.slide.emit({ slide: "left"});
