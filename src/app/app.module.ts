@@ -19,7 +19,6 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { SimilarTabComponent } from './detail/similar-tab/similar-tab.component';
 import {RoundProgressModule} from 'angular-svg-round-progressbar';
 import {MatInputModule} from '@angular/material';
-import { AutocompleteDirective } from "./directive/autocomplete.directive";
 import { WishListComponent } from './wishlist/wishlist.component';
 
 @NgModule({
@@ -34,7 +33,6 @@ import { WishListComponent } from './wishlist/wishlist.component';
     ShippingTabComponent,
     SellerTabComponent,
     SimilarTabComponent,
-    AutocompleteDirective,
     WishListComponent
   ],
   imports: [
