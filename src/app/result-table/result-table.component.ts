@@ -1,5 +1,5 @@
 import { Component, Input, EventEmitter,Output } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient} from '@angular/common/http';
 import { SearchService } from "../service/search.service";
 import { PagerService } from '../service/pager.service';
 import { DetailService} from '../service/detail.service';

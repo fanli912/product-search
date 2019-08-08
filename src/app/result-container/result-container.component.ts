@@ -1,5 +1,5 @@
-import { Component,OnInit,Input} from "@angular/core";
-import { trigger, state, style, transition, animate} from "@angular/animations";
+import { Component} from "@angular/core";
+import { trigger,style, transition, animate} from "@angular/animations";
 
 @Component({
   selector: "app-result-container",

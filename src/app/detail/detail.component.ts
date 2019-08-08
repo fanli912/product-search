@@ -1,5 +1,4 @@
-import { Component, OnInit, NgZone, EventEmitter, Output } from "@angular/core";
-import { SearchService } from "../service/search.service";
+import { Component, NgZone, EventEmitter, Output } from "@angular/core";
 import { DetailService } from "../service/detail.service";
 import { Product } from "./product-info/product-info";
 import { Shipping } from "./shipping-tab/shipping";

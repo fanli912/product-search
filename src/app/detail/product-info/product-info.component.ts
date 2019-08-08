@@ -1,4 +1,4 @@
-import { Component, OnInit, OnChanges, Input } from "@angular/core";
+import { Component, Input } from "@angular/core";
 import { Product } from "./product-info";
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 @Component({
