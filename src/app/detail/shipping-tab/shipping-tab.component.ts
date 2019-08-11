@@ -1,10 +1,12 @@
 import { Component, Input } from "@angular/core";
 import { Shipping } from "./shipping";
+import { style } from '@angular/animations';
 
 
 @Component({
   selector: "app-shipping-tab",
-  templateUrl: "./shipping-tab.component.html"
+  templateUrl: "./shipping-tab.component.html",
+  styleUrls:['./shipping-tab.component.css']
 })
 export class ShippingTabComponent {
   @Input() shipping: Shipping;

@@ -21,6 +21,25 @@
 }
 
 #facebook {
-  width: 38px;
-  height: 38px;
+  width: 30px;
+  height: 30px;
+}
+
+#product-name {
+  text-align: center;
+  padding-top: 30px;
+  padding-bottom: 15px;
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+.nav-tabs {
+  padding-top:10px;
+  padding-right: 1px;
 }

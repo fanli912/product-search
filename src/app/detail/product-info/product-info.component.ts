@@ -3,7 +3,8 @@ import { Product } from "./product-info";
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 @Component({
   selector: "app-info-tab",
-  templateUrl: "./product-info.component.html"
+  templateUrl: "./product-info.component.html",
+  styleUrls: ["./product-info.component.css"],
 })
 export class InfoTabComponent {
   @Input() product: Product

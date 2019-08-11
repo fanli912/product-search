@@ -1,0 +1,7 @@
+.seeImage {
+  text-decoration: underline;
+}
+
+.seeImage :hover {
+  cursor: pointer;
+}

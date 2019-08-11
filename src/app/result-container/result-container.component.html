@@ -2,11 +2,10 @@
 <div class="container" >
   <div id="result-and-wishlist">
     <div class="btn-group" role="group">
-      <button type="button" [class]="resultShowClass" (click)="showResult()">Results</button>
-      <button type="button" [class]="wishlistShowClass" (click)="showWishList()">Wish List</button>
+      <button id="resultButton" type="button" [class]="resultShowClass" (click)="showResult()">Results</button>
+      <button id= "wishButton"type="button" [class]="wishlistShowClass" (click)="showWishList()">Wish List</button>
     </div>
   </div>
-  <!-- *ngIf="!clear" -->
 
   <div id="slide-container"  class="container" [@slideAnimation]="active">
     <div class="slide-div" [hidden]="active === 'right'">

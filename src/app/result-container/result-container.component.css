@@ -1,5 +1,11 @@
 #result-and-wishlist {
-  padding-left : 45%;
+  padding-left : 40%;
 }
 
+#resultButton {
+  width:100px;
+}
 
+#wishButton {
+  width: 100px;
+  }
