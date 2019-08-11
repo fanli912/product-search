@@ -30,7 +30,7 @@
           <td>
             <img src={{rowdata.galleryURL}} alt="icon" class="product-pic">
           </td>
-          <td><a (click)="getDetails(rowdata['itemId'][0])" (click)=" getSimilar(rowdata['itemId'][0])">{{simplifyTitle(rowdata["title"][0])}}</a></td>
+          <td class="itemTitle text-primary"><a (click)="getDetails(rowdata['itemId'][0])" (click)=" getSimilar(rowdata['itemId'][0])">{{simplifyTitle(rowdata["title"][0])}}</a></td>
           <td>${{rowdata["sellingStatus"][0]["currentPrice"][0]["__value__"]}}</td>
           <td>{{rowdata["shippingInfo"][0]["shippingType"][0]}}</td>
           <td>{{rowdata["postalCode"]}}</td>

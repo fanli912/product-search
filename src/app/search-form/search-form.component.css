@@ -6,27 +6,38 @@
 }
 
 #form-header {
-  font-size: 18px;
   font-weight: bold;
   text-align: center;
+  padding-top: 10px;
+  font-size: 35px;
+  padding-bottom: 8px;
 }
 
 .container-fluid {
-  height: 750px;
+  height: 600px;
   width: 1100px;
 }
 
-#form-header {
 
-  font-size: 35px;
-  padding-bottom: 10px;
-}
 
 .search-form {
-  margin-top: 25px;
+
   margin-left: 40px;
 }
 
 .search-btn-group{
   margin-left: 30px;
+}
+
+.jumbotron  {
+  height: 550px;
+  padding-top: 10px;
+}
+
+#search-btn {
+  margin-right: 15px;
+  }
+
+#search-btn-group {
+  padding-top : 10px;
 }

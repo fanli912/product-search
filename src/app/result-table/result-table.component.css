@@ -14,3 +14,11 @@
 
 }
 
+.itemTitle {
+  text-decoration: underline;
+}
+
+.itemTitle :hover {
+  cursor: pointer;
+}
+
