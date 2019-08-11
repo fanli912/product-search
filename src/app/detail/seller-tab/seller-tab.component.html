@@ -4,7 +4,8 @@
       <tbody>
         <tr *ngIf="seller.feedbackScore">
           <th scope="row">Feedback Score</th>
-          <td>{{seller.feedbackScore}}</td>
+          <td *ngIf="star()"> <i class="fas fa-star"></i> </td>
+          <td *ngIf="!star()"><i class="far fa-star"></i></td>
         </tr>
         <tr *ngIf="seller.popularity">
           <th scope="row">Popularity</th>
@@ -31,7 +32,7 @@
         </tr>
         <tr *ngIf="seller.ratingStar">
           <th scope="row">Feedback Rating Star</th>
-          <td>{{seller.ratingStar}}</td>
+          <td *ngIf="star()"> <i class="fas fa-star"></i>  </td>
         </tr>
         <tr *ngIf="seller.topRated">
           <th scope="row">Top Rated</th>

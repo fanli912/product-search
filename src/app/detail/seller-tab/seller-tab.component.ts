@@ -10,10 +10,13 @@ import { Seller } from "./seller";
 export class SellerTabComponent {
   @Input() seller: Seller;
 
-
-
-
   constructor() {}
 
+  star() {
+    if (parseInt(this.seller.feedbackScore)> 5000) {
+      return true;
+    }
+    return false;
+  }
 
 }

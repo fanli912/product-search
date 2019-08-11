@@ -41,16 +41,7 @@ export class DetailService {
       });
   }
 
-  getPhotos(title) {
-   this.http
-     .post("http://localhost:3000/photo", {"title": title})
-     .subscribe(photoData => {
-       console.log(photoData)
-       this.photoJson = photoData
-      this._photos.next(this.photoJson);
 
-     });
- }
  getSimilar(itemId) {
   this.http
     .post("http://localhost:3000/similar", {"itemId": itemId})

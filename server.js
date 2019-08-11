@@ -123,7 +123,6 @@ app.post("/detail", async(req, res) => {
     let url = "http://open.api.ebay.com/shopping?callname=GetSingleItem&responseencoding=JSON&appid=LiFan-mytestap-PRD-816e2f149-f30e199f&siteid=0&version=967&ItemID="+itemId+"&IncludeSelector=ShippingInfo,Description,Details,ItemSpecifics"
     axios.get(url).then(response => {
       res.send(response["data"]["Item"])
-      console.log(response["data"]["Item"])
     })
   } catch(err) {
     console.log(err);

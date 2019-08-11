@@ -34,9 +34,7 @@
     <div class="tab-pane" [class.active]="activeId==='info-tab'" role="tabpanel" id="info-tab-panel" aria-labelledby="info-tab">
       <app-info-tab [product]="infoJson"></app-info-tab>
     </div>
-    <div class="tab-pane" [class.active]="activeId==='shipping-tab'" role="tabpanel" id="shipping-tab-panel" aria-labelledby="shipping-tab">
-      <app-shipping-tab [shipping]=" shipJson"></app-shipping-tab>
-    </div>
+
     <div class="tab-pane" [class.active]="activeId==='seller-tab'" role="tabpanel" id="seller-tab-panel" aria-labelledby="seller-tab">
         <app-seller-tab [seller]=" sellerJson"></app-seller-tab>
       </div>

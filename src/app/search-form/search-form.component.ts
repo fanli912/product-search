@@ -46,7 +46,7 @@ onSubmit() {
 }
 
 clear() {
-  //this.searchService.clear();
+  this.searchService.clear();
   this.form.useCurLoc = true;
 }
 
@@ -63,7 +63,6 @@ getSuggestions(code: string) {
   this.http.get<any[]>('http://api.geonames.org/postalCodeSearchJSON?postalcode_startsWith='+code+'&username=fanli912&country=US&maxRows=5')
     .subscribe(data => {
       this.autoCom = data['postalCodes'];
-      console.log(this.autoCom)
     });}
 }
 

@@ -1,7 +1,6 @@
 import { Component, NgZone, EventEmitter, Output } from "@angular/core";
 import { DetailService } from "../service/detail.service";
 import { Product } from "./product-info/product-info";
-import { Shipping } from "./shipping-tab/shipping";
 import { Seller } from "./seller-tab/seller";
 @Component({
   selector: "app-detail",
@@ -13,14 +12,12 @@ export class DetailComponent {
 
   private tabs = [
     { id: "info-tab", title: "Product" },
-    { id: "shipping-tab", title: "Shipping" },
     { id: "seller-tab", title: "Seller" },
     { id: "similar-products-tab", title: "Similar Products" }
   ];
   @Output() slide = new EventEmitter<string>();
   details: any
   infoJson: Product
-  shipJson: Shipping
   sellerJson: Seller
   similarJson: any
   private activeId = "info-tab";
@@ -32,9 +29,7 @@ export class DetailComponent {
     this.dService.details.subscribe(data => {
       this.zone.run(() => {
         this.details = data;
-        console.log(data)
         this.setInfo(data);
-        this.setShipping(data);
         this.setSeller(data);
       });
     });
@@ -75,32 +70,6 @@ setInfo(data) {
 slideDetail() {
   this.slide.emit("right");
   this.activeId = "info-tab"
-}
-
-setShipping(data) {
-  let tmpJson = new Shipping();
-  if (data["shippingInfo"]) {
-    tmpJson.cost= data["shippingInfo"]["shippingServiceCost"]["__value__"];
-  }
-  if (data["ShipToLocations"]) {
-    tmpJson.location= data["ShipToLocations"];
-  }
-  if (data["HandlingTime"]) {
-    tmpJson.handlingTime= data["HandlingTime"];
-  }
-  if (data["shippingInfo"]) {
-    tmpJson.expedited = data["shippingInfo"]["expeditedShipping"];
-  }
-  if (data["shippingInfo"]) {
-    tmpJson.oneday = data["shippingInfo"]["oneDayShippingAvailable"];
-  }
-  if (data["GlobalShipping"]) {
-    tmpJson.global = data["GlobalShipping"];
-  }
-  if (data["returnsAccepted"]) {
-    tmpJson.returnAccepted= data["returnsAccepted"];
-  }
-  this.shipJson = tmpJson;
 }
 
 

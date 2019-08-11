@@ -28,18 +28,34 @@ export class ResultTalbeComponent{
 
     // pager object
     pager: any = {};
-
+    error: boolean = false;
     // paged items
     pagedItems: any[];
 
 
   constructor(private searchService: SearchService, private http: HttpClient, private pagerService: PagerService, private dService: DetailService, private wService:WishListService) {
     this.searchService.resultJson.subscribe(data => {
+      if (data === null) {
+        this.error = true;
+        this.showResult = true;
+      } else if (data === undefined) {
+      }
+      else if (data["status"] == 'ZERO_RESULTS') {
+        this.resultJson = null;
+        this.showResult = true;
+      }
+
+      else if(data == 'clear') {
+        this.resultJson = null;
+        this.showResult = true;
+        this.selectedRow = null;
+      } else {
       this.resultJson = data
       this.showResult = true;
       this.allItems = data
       // initialize to page 1
       this.setPage(1);
+    }
 
   });
 }

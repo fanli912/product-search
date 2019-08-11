@@ -2,7 +2,7 @@
     No record!
   </div>
 
-  <div class="row review-buttons">
+  <!-- <div class="row review-buttons">
       <div class="dropdown">
         <button class="btn btn-secondary dropdown-toggle" type="button"data-toggle="dropdown" aria-haspopup="true"
           aria-expanded="false">{{orderBy[selectedOrderBy]}}</button>
@@ -17,7 +17,7 @@
           <a *ngFor="let type of orderTypes; index as i" (click)="setOrderType(i)" class="dropdown-item">{{type}}</a>
         </div>
       </div>
-    </div>
+    </div> -->
 
 
 <div *ngIf="similar">
@@ -57,8 +57,8 @@
           </div>
         </div>
 
-   <button *ngIf="!showMore" class="btn btn-dark" (click)="more()">Show More</button>
-   <button  *ngIf="showMore" class="btn btn-dark" (click)="less()">Show Less</button>
+   <button *ngIf="!showMore" class="btn btn-primary" (click)="more()">Show More</button>
+   <button  *ngIf="showMore" class="btn btn-primary" (click)="less()">Show Less</button>
   </div>
 
 

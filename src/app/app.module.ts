@@ -12,7 +12,6 @@ import { ResultTalbeComponent } from './result-table/result-table.component';
 import { ResultContainerComponent } from './result-container/result-container.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {  InfoTabComponent} from './detail/product-info/product-info.component';
-import { ShippingTabComponent } from './detail/shipping-tab/shipping-tab.component';
 import { SellerTabComponent } from './detail/seller-tab/seller-tab.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { SimilarTabComponent } from './detail/similar-tab/similar-tab.component';
@@ -28,7 +27,6 @@ import { WishListComponent } from './wishlist/wishlist.component';
     DetailComponent,
     ResultContainerComponent,
     InfoTabComponent,
-    ShippingTabComponent,
     SellerTabComponent,
     SimilarTabComponent,
     WishListComponent

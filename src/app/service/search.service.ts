@@ -18,6 +18,8 @@ export class SearchService {
   private jsonData: any;
   private _resultJson = new Subject();
   resultJson = this._resultJson.asObservable();
+  private _isClear = new Subject();
+  isClear = this._isClear.asObservable();
 
   constructor(private http: HttpClient) {}
 
@@ -50,8 +52,16 @@ export class SearchService {
       .subscribe(responseData => {
         this.jsonData = responseData
         this._resultJson.next(this.jsonData);
-        console.log(responseData)
+
       });
+  }
+
+  clear() {
+
+    this._resultJson.next('clear');
+    this.jsonData = undefined;
+    this._isClear.next(true);
+
   }
 
 
